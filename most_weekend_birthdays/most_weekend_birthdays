@@ -5,30 +5,49 @@ END_DT_OBJ = datetime.strptime("2022-12-31", r'%Y-%m-%d').date().strftime('%Y-%m
 
 def main():    
     #weekend_birthdays = []
-    #birthdays = [("Alice", "2010-11-10"), ("Bob", "2010-11-23")]
-    birthdays = [("Steve", "2010-11-18"), ("Dave", "2010-11-22")]
+    #bdays = [("Alice", "2010-11-10"), ("Bob", "2010-11-23")]
+    bdays = [("Steve", "2010-11-18"), ("Dave", "2010-11-22")]
+    bdays_count = []
     max_count = 0
+    max_date = ""
     max_name = ""
-    for birthday in birthdays:
-        name = birthday[0]
-        date = birthday[1]
+
+    for bday in bdays:
+        name = bday[0]
+        date = datetime.strptime(bday[1], "%Y-%m-%d").date().strftime('%Y-%m-%d')
         count = most_weekend_birthdays(name, date)
         #weekend_birthdays.append((name, date, count))
         if count > max_count:
             max_count = count
             max_name = name
+        bdays_count.append((name, date, count))
+    date = ""
+    count = 0
+    for bday in bdays_count:
+        if date == "":
+            max_name = bday[0]
+            max_date = datetime.strptime(bday[1], "%Y-%m-%d").date().strftime('%Y-%m-%d')
+            max_count = bday[2]
+            print(f"{max_name.strip()} {max_date} {max_count}")
+        else:
+            date = datetime.strptime(bday[1], "%Y-%m-%d").date().strftime('%Y-%m-%d')
+            if (bday[2] == max_count) and (date < max_date):
+                print(type(date))
+                print(type(max_date))
+                max_name = bday[0]
+                max_date = date
+                max_count = bday[2]
+                print(f"{max_name.strip()} {max_date} {max_count}")        
     print(f"{max_name.strip()}")
 
 
 def most_weekend_birthdays(friends, conversation_date):
     count = 0
-    bod_dt_obj = datetime.strptime(conversation_date, r'%Y-%m-%d').date().strftime('%Y-%m-%d')
-    
+    bod_dt_obj = datetime.strptime(conversation_date, r'%Y-%m-%d').date().strftime('%Y-%m-%d')    
     for year in range(int(bod_dt_obj[:4])+1, int(END_DT_OBJ[:4])+1): # Loop through years
         if is_weekend(year, int(bod_dt_obj[5:7]), int(bod_dt_obj[8:10])): 
             count += 1            
-            print(f"{friends}: {datetime(year, int(bod_dt_obj[5:7]), int(bod_dt_obj[8:10])).strftime('%A')}") # Print day of week
-    print(f"{count} of {friends}'s birthdays fall on a weekend.")
+            #print(f"{friends}: {datetime(year, int(bod_dt_obj[5:7]), int(bod_dt_obj[8:10])).strftime('%A')}") # Print day of week
     return count    
     
 
