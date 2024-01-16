@@ -1,5 +1,6 @@
 def main():
-    s = ["scissors", "paper"], ["paper", "rock"], ["rock", "scissors"], ["scissors", "rock"], ["paper", "paper"]
+    s = [("rock", "scissors"), ("scissors", "paper"), ("paper", "rock"),
+        ("rock", "rock"), ("scissors", "scissors"), ("paper", "paper")]
     for _ in s:
         print(rps(_[0], _[1]))
 
