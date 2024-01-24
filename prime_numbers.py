@@ -17,4 +17,3 @@ if __name__ == "__main__":
     numbers = ["36", "97", "53", "7", "8", "9"]
     for number in numbers:
         print(is_prime(number))
-
