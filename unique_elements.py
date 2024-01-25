@@ -1,6 +1,5 @@
-# Description: Function that takes a list as input 
-# and returns a new list containing only the unique elements, 
-# preserving the original order.
+# Description: Function that takes a list as input and returns a new list
+# containing only the unique elements, preserving the original order.
 def get_unique_elements(input_list):
     unique_list = []
     for element in input_list:
