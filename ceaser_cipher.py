@@ -17,5 +17,8 @@ def cipher_text(text, key):
 
 if __name__ == "__main__":
     text = input("Enter text to encrypt: ")
-    key = int(input("Key: "))
+    try:
+        key = int(input("Key: "))
+    except ValueError:
+        print("Key must be an integer.")        
     print(cipher_text(text, key))
