@@ -14,3 +14,4 @@ if __name__ == '__main__':
     print(ubbi_dubbi('program'))
     print(ubbi_dubbi('octopus'))
     print(ubbi_dubbi('milk'))
+    print(ubbi_dubbi('elephant'))
