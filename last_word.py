@@ -5,8 +5,10 @@ def find_last_word():
 
     with open("./file.txt", "r") as file:
         words = file.read().split()
-        last_word = max(words, key=str.lower)
-        print("The last word alphabetically is:", last_word)
+        first_word = min(words, key=str.lower) 
+        last_word = max(words, key=str.lower) # key is a function that is used to compare values
+        print("The first word alphabetically is:", first_word)
+        print("The last word alphabetically is:", last_word)        
 
 
 if __name__ == "__main__":
