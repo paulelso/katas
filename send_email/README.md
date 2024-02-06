@@ -1,0 +1,1 @@
+# My Codewars Python katas solutions

@@ -1,7 +1,6 @@
 import smtplib, ssl
 
 smtp_server = "smtp.gmail.com"
-#port = 587  # For starttls
 port = 465  # For SSL
 
 sender_email = "psousa@twilio.com"  # Enter your address
