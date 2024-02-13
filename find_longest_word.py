@@ -1,4 +1,4 @@
-# Description: Function that returns the longest word in the list
+# Description: Function that returns# the longest word in the list
 def find_longest_word(file):
     words = file.read().split()
     return max(words, key=len) # return the longest word in the list
